@@ -18,40 +18,51 @@
 @for ($i = 0; $i < 3; $i++)
     <div class="row altoFila" >
     @for ($j = 0; $j < 4; $j++)
-        <div class="col-md-3 border border-success primeraTarjeta">
+        <div class="col-md-3 border border-success primeraTarjetaRepos">
             <div>
-                <img id="{{'foto'.$i.$j}}"  class="primerFoto" src="" alt="">
+                <label><p class="font-weight-bold subtituloLinkSitio">Link del Sitio:</p></label>
             </div>
 
             <div>
-                <label><p class="font-weight-bold subtituloNombre">Nombre de Usuario:</p></label>
-            </div>
-
-            <div>
-                <p id="{{'nombre'.$i.$j}}" class="font-weight-normal nombreUsuario"></p>
+                <a id="{{''.$i.$j}}" href="" class="font-italic linkSitio"> https://api.github.com/users/mojombo</a>
             </div>
             
             <div>
-                <label><p class="font-weight-bold subtituloLink">Link de página:</p></label>
+                <label><p class="font-weight-bold subtituloRepositorio">Nombre del repositorio: </p></label>
             </div>
 
             <div>
-                <a id="{{'linkUsuario'.$i.$j}}"  target="_blank" class="font-italic linkUsuario" ></a>
+                <p id="{{''.$i.$j}}" class="font-italic  nombreRepositorio" >Macriiiiiigatooo :v</p>
             </div>
 
             <div>
-                <label><p class="font-weight-bold subtituloPaginaInterna">Link de página interna:</p></label>
+                <label><p class="font-weight-bold subtituloDescripcion">Descripción:</p></label>
             </div>
 
             <div>
-                <a id="{{'id'.$i.$j}}"  href="/repositorios"  class="font-italic linkPagina">Repositorios realizados</a>
+                <p class="font-italic descripcion"> Simple, but flexible HTTP client library, with support for multiple backends.</p>
+            </div>
+
+            <div>
+                <label><p class="font-weight-bold subtituloCantidadIssues">Cantidad Issues:</p></label>
+                <p    class="font-italic  issues">34</p>
+            </div>
+
+            <div>
+                <label><p class="font-weight-bold subtituloCantidadIssuesAbiertos">Cantidad Issues abiertos:</p></label>
+                <p    class="font-italic  issuesAbiertos">45</p>
+            </div>
+
+            <div>
+                <label><p class="font-weight-bold subtituloCantidadForks">Cantidad Forks:</p></label>
+                <p class="font-italic  forks">23</p>
             </div>
       
         </div>
     @endfor
     </div>
     @endfor
-    <button class="btn botonCargar"> <i class="fa fa-sign-in fa-lg"></i> Siguiente Bloque</button>
+    
 
 </div>
 
@@ -94,9 +105,7 @@
 
                         document.getElementById("linkUsuario"+z+""+j).href=result[i].html_url
 
-                        document.getElementById("id"+z+""+j).value=result[i].id;
-
-                        document.getElementById("id"+z+""+j).href='/repositorios/'+result[i].id;
+                       
                         
 
 
@@ -124,3 +133,20 @@
 
            
 </script>
+
+<!--
+<script>
+
+     function paginaInterna() {
+                $.ajax({
+                url: "https://api.github.com/users/blackmiaool/repos",
+                jsonp: true,
+                method: "GET",
+                dataType: "json",
+                success: function(res) {
+                    console.log(res)
+                }
+                });
+    }
+</script>
+-->

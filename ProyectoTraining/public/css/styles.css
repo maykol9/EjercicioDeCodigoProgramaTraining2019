@@ -1,3 +1,7 @@
+body{
+    background-color: #EFFD1D;
+}
+
 .altoFila{
     height: 220px;
 }
@@ -69,4 +73,88 @@
     position: absolute;
     top: 142px;
     left: 20px; 
+}
+
+.botonCargar{
+    position: absolute;
+    left: 45%;
+    background-color: #800000; 
+    color: white;
+}
+
+
+
+.primeraTarjetaRepos{
+    color: black;
+    background-color: #EFFD1D;
+}
+
+.subtituloLinkSitio{
+    position: absolute;
+    top: 0px;
+    
+}
+
+.linkSitio{
+    position: absolute;
+    top: 20px;
+    color: blue;
+}
+
+.subtituloRepositorio{
+    position: absolute;
+    top: 40px;
+}
+
+.nombreRepositorio{
+    position: absolute;
+    top: 60px;
+    color: blue;
+}
+
+.subtituloDescripcion{
+    position: absolute;
+    top: 80px;
+}
+
+.descripcion{
+    position: absolute;
+    top: 100px;
+    color: blue;
+}
+
+.subtituloCantidadIssues{
+    position: absolute;
+    top: 145px;
+}
+
+.issues{
+    position: absolute;
+    top: 145px;
+    left: 240px;
+    color: blue; 
+}
+
+.subtituloCantidadIssuesAbiertos{
+    position: absolute;
+    top: 160px;  
+}
+
+.issuesAbiertos{
+    position: absolute;
+    top: 160px;
+    left: 240px;
+    color: blue; 
+}
+
+.subtituloCantidadForks{
+    position: absolute;
+    top: 175px;  
+}
+
+.forks{
+    position: absolute;
+    top: 175px;
+    left: 240px;
+    color: blue;  
 }
