@@ -6,6 +6,10 @@ body{
     height: 220px;
 }
 
+.altoFilaRepos{
+    height: 320px;
+}
+
 .primeraTarjeta{
     color: black;
     background-color: #EFFD1D;
@@ -91,70 +95,73 @@ body{
 
 .subtituloLinkSitio{
     position: absolute;
-    top: 0px;
+    top: 15px;
     
 }
 
 .linkSitio{
     position: absolute;
-    top: 20px;
+    top: 40px;
     color: blue;
 }
 
 .subtituloRepositorio{
     position: absolute;
-    top: 40px;
+    top: 65px;
 }
 
 .nombreRepositorio{
     position: absolute;
-    top: 60px;
+    top: 90px;
     color: blue;
 }
 
 .subtituloDescripcion{
     position: absolute;
-    top: 80px;
+    top: 115px;
 }
 
 .descripcion{
     position: absolute;
-    top: 100px;
+    top: 140px;
+    width: 290px;
+    height: 60px; 
     color: blue;
+    background-color: #EFFD1D;
 }
 
 .subtituloCantidadIssues{
     position: absolute;
-    top: 145px;
+    top: 215px;
 }
 
 .issues{
     position: absolute;
-    top: 145px;
+    top: 215px;
     left: 240px;
     color: blue; 
 }
 
 .subtituloCantidadIssuesAbiertos{
     position: absolute;
-    top: 160px;  
+    top: 230px;  
 }
 
 .issuesAbiertos{
     position: absolute;
-    top: 160px;
+    top: 230px;
     left: 240px;
     color: blue; 
 }
 
 .subtituloCantidadForks{
     position: absolute;
-    top: 175px;  
+    top: 245px;  
 }
 
 .forks{
     position: absolute;
-    top: 175px;
+    top: 245px;
     left: 240px;
     color: blue;  
 }

@@ -75,14 +75,9 @@
                     var j=0;
                     var z=0;
                     for(var i=0; i<result.length;i++){
-                        j++;
-                        if(j==4){
-                            j=0;
-                        }
-                        z++;
-                        if(z==3){
-                            z=0;
-                        }
+                        j = i % 4;
+                        z = parseInt(i / 4);
+                        console.log(z+""+j);
                        
                         //var cadena="foto"+z+""+j;
                         document.getElementById("foto"+z+""+j).src=result[i].avatar_url;
@@ -94,9 +89,11 @@
 
                         document.getElementById("linkUsuario"+z+""+j).href=result[i].html_url
 
-                        document.getElementById("id"+z+""+j).value=result[i].id;
+                        //document.getElementById("id"+z+""+j).value=result[i].id;
 
-                        document.getElementById("id"+z+""+j).href='/repositorios/'+result[i].id;
+                        document.getElementById("id"+z+""+j).href='repositorios?username='+result[i].login;
+
+                        
                         
 
 
