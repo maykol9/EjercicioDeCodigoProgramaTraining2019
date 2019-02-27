@@ -1,0 +1,72 @@
+.altoFila{
+    height: 220px;
+}
+
+.primeraTarjeta{
+    color: black;
+    background-color: #EFFD1D;
+}
+
+.segundaTarjeta{
+    color: black;
+    background-color: #42FD1D;
+}
+
+.terceraTarjeta{
+    color: black;
+    background-color: #FD1D49;
+}
+
+.cuartaTarjeta{
+    color: black;
+    background-color: #FDB61D;
+}
+
+
+
+.primerFoto{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+    height: 80px;
+}
+
+.subtituloNombre{
+    position: absolute;
+    top: 20px;
+    left: 130px;
+    
+}
+
+.nombreUsuario{
+    position: absolute;
+    top: 42px;
+    left: 170px;
+    color: #3581fc; 
+}
+
+.subtituloLink{
+    position: absolute;
+    top: 72px;
+    left: 130px;
+     
+}
+
+.linkUsuario{
+    position: absolute;
+    top: 98px;
+    left: 20px;
+}
+
+.subtituloPaginaInterna{
+    position: absolute;
+    top: 122px;
+    left: 20px;
+}
+
+.linkPagina{
+    position: absolute;
+    top: 142px;
+    left: 20px; 
+}
