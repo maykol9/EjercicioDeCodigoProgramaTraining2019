@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Repositorios del Usuario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet"> 
@@ -14,72 +14,81 @@
 </head>
 <body>
 
-<div class="col-md-12 " >
-@for ($i = 0; $i < 2; $i++)
-    <div class="row altoFilaRepos" >
-    @for ($j = 0; $j < 4; $j++)
-        <div class="col-md-3 border border-success primeraTarjetaRepos">
-            <div>
-                <label><p class="font-weight-bold subtituloLinkSitio">Link del Sitio:</p></label>
-            </div>
+    <div class="col-md-12 " id="content">
+        @for ($i = 0; $i < 2; $i++)
+            <div class="row altoFilaRepos" >
+            @for ($j = 0; $j < 4; $j++)
+                <div class="col-md-3 primeraTarjetaRepos">
+                    <div>
+                        <label><p class="font-weight-bold subtituloLinkSitio">Link del Sitio:</p></label>
+                    </div>
 
-            <div>
-                <a id="{{'link'.$i.$j}}"  class="font-italic linkSitio"> </a>
-            </div>
+                    <div>
+                        <a id="{{'link'.$i.$j}}"  class="font-italic linkSitio"> </a>
+                    </div>
+                    
+                    <div>
+                        <label><p class="font-weight-bold subtituloRepositorio">Nombre del repositorio: </p></label>
+                    </div>
+
+                    <div>
+                        <p id="{{'nombrecito'.$i.$j}}" class="font-italic  nombreRepositorio" ></p>
+                    </div>
+
+                    <div>
+                        <label><p class="font-weight-bold subtituloDescripcion">Descripción:</p></label>
+                    </div>
+
+                    <div>
+                        <textarea id="{{'descripcion'.$i.$j}}" class="font-italic descripcion" readonly="readonly">
+                        </textarea>
+                    </div>
+
+                    <div>
+                        <label><p class="font-weight-bold subtituloCantidadIssues">Cantidad Issues:</p></label>
+                        <p  id="{{'issues'.$i.$j}}"  class="font-italic  issues"></p>
+                    </div>
+
+                    <div>
+                        <label><p class="font-weight-bold subtituloCantidadIssuesAbiertos">Cantidad Issues abiertos:</p></label>
+                        <p  id="{{'issuesAbiertos'.$i.$j}}"  class="font-italic  issuesAbiertos"></p>
+                    </div>
+
+                    <div>
+                        <label><p class="font-weight-bold subtituloCantidadForks">Cantidad Forks:</p></label>
+                        <p id="{{'forks'.$i.$j}}" class="font-italic  forks"></p>
+                    </div>
             
-            <div>
-                <label><p class="font-weight-bold subtituloRepositorio">Nombre del repositorio: </p></label>
+                </div>
+            @endfor
             </div>
+        @endfor
+            
 
-            <div>
-                <p id="{{'nombrecito'.$i.$j}}" class="font-italic  nombreRepositorio" ></p>
-            </div>
-
-            <div>
-                <label><p class="font-weight-bold subtituloDescripcion">Descripción:</p></label>
-            </div>
-
-            <div>
-                <textarea id="{{'descripcion'.$i.$j}}" class="font-italic descripcion" readonly="readonly">
-                </textarea>
-            </div>
-
-            <div>
-                <label><p class="font-weight-bold subtituloCantidadIssues">Cantidad Issues:</p></label>
-                <p  id="{{'issues'.$i.$j}}"  class="font-italic  issues"></p>
-            </div>
-
-            <div>
-                <label><p class="font-weight-bold subtituloCantidadIssuesAbiertos">Cantidad Issues abiertos:</p></label>
-                <p  id="{{'issuesAbiertos'.$i.$j}}"  class="font-italic  issuesAbiertos"></p>
-            </div>
-
-            <div>
-                <label><p class="font-weight-bold subtituloCantidadForks">Cantidad Forks:</p></label>
-                <p id="{{'forks'.$i.$j}}" class="font-italic  forks"></p>
-            </div>
-      
-        </div>
-    @endfor
     </div>
-    @endfor
-    
 
-</div>
-
-   
-
-
+    <div class="paginacion">
+        <a href="#">&laquo;</a>
+        <a class="active" href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+    </div>
 
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
+        var numero = 1;
          conceder();
          function conceder(){
             var identificador= new URLSearchParams(window.location.search);
+            
                 $.ajax({
-                url: "https://api.github.com/users/"+identificador.get('username')+"/repos?page=1&per_page=8",
+                url: "https://api.github.com/users/"+identificador.get('username')+"/repos?page="+numero+"&per_page=8",
                 type: 'get',
                 success: function(result){
                     
@@ -102,6 +111,8 @@
                         document.getElementById("forks"+z+""+j).innerHTML=result[i].forks_count;
                         funcion(idenUsername.get('username'),result[i].name,z,j);
                     }
+
+                    
                     
                 },
                 beforeSend:function (){
@@ -111,9 +122,9 @@
                     console.log('NOOOOOOOOO');
                 }
             });
-            }
+        }
 
-         function funcion(name,repositoryname,z,j){
+        function funcion(name,repositoryname,z,j){
             document.getElementById("issues"+z+""+j).innerHTML="hola";
             $.ajax({
                             url: "https://api.github.com/repos/"+name+"/"+repositoryname+"/issues",
@@ -136,8 +147,6 @@
                                 console.log('NOOOOOOOOO');
                             }
                         });
-            }
-
-           
-           
+        }
+      
 </script>

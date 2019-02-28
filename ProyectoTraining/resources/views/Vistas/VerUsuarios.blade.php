@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Usuarios Github</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet"> 
@@ -14,60 +14,57 @@
 </head>
 <body>
 
-<div class="col-md-12 " >
-@for ($i = 0; $i < 3; $i++)
-    <div class="row altoFila" >
-    @for ($j = 0; $j < 4; $j++)
-        <div class="col-md-3 border border-success primeraTarjeta">
-            <div>
-                <img id="{{'foto'.$i.$j}}"  class="primerFoto" src="" alt="">
-            </div>
+    <div class="col-md-12 " >
+    @for ($i = 0; $i < 3; $i++)
+        <div class="row altoFila" >
+        @for ($j = 0; $j < 4; $j++)
+            <div class="col-md-3 primeraTarjeta">
+                <div>
+                    <img id="{{'foto'.$i.$j}}"  class="primerFoto" src="/imagenes/fotoUsuario.png" alt="">
+                </div>
 
-            <div>
-                <label><p class="font-weight-bold subtituloNombre">Nombre de Usuario:</p></label>
-            </div>
+                <div>
+                    <label><p class="font-weight-bold subtituloNombre">Nombre de Usuario:</p></label>
+                </div>
 
-            <div>
-                <p id="{{'nombre'.$i.$j}}" class="font-weight-normal nombreUsuario"></p>
-            </div>
-            
-            <div>
-                <label><p class="font-weight-bold subtituloLink">Link de página:</p></label>
-            </div>
+                <div>
+                    <p id="{{'nombre'.$i.$j}}" class="font-weight-normal nombreUsuario"></p>
+                </div>
+                
+                <div>
+                    <label><p class="font-weight-bold subtituloLink">Link de página:</p></label>
+                </div>
 
-            <div>
-                <a id="{{'linkUsuario'.$i.$j}}"  target="_blank" class="font-italic linkUsuario" ></a>
-            </div>
+                <div>
+                    <a id="{{'linkUsuario'.$i.$j}}"  target="_blank" class="font-italic linkUsuario" ></a>
+                </div>
 
-            <div>
-                <label><p class="font-weight-bold subtituloPaginaInterna">Link de página interna:</p></label>
-            </div>
+                <div>
+                    <label><p class="font-weight-bold subtituloPaginaInterna">Link de página interna:</p></label>
+                </div>
 
-            <div>
-                <a id="{{'id'.$i.$j}}"  href="/repositorios"  class="font-italic linkPagina">Repositorios realizados</a>
+                <div>
+                    <a id="{{'id'.$i.$j}}"  href="/repositorios"  class="font-italic linkPagina">Repositorios realizados</a>
+                </div>
+        
             </div>
-      
+        @endfor
         </div>
-    @endfor
+        @endfor
+        <button onclick='contador()' id="botonSiguiente" class="btn botonCargar"><i class="fa fa-sign-in fa-lg"></i> Siguiente Bloque</button>
+
     </div>
-    @endfor
-    <button class="btn botonCargar"> <i class="fa fa-sign-in fa-lg"></i> Siguiente Bloque</button>
-
-</div>
-
-   
-
-
-
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
+        var numero= 1; 
          conceder();
          function conceder(){
-                
+
+                  
                 $.ajax({
-                url: "https://api.github.com/users?page=1&per_page=12",
+                url: "https://api.github.com/users?page="+numero+"&per_page=12",
                 type: 'get',
                 success: function(result){
                     
@@ -93,22 +90,11 @@
 
                         document.getElementById("id"+z+""+j).href='repositorios?username='+result[i].login;
 
-                        
-                        
-
-
                     }
-                   /* if(result.valido == 'si'){
-                        console.log('todo ok');
-                        document.getElementById("botonRegistrar").click();
-                    }else{
-                        console.log('todo mal');
-                        var message = "Los Nombres " + nombre + " " + apellidoP + " " + apellidoM;
-                        message = message + " ya estan registrados en la base, ¿desea registrar el un usuario con los mismos nombre?";
-                        $("#contenido-modal").empty();
-                        $("#contenido-modal").append(message);
-                        $('#create').modal('show');
-                    }*/
+
+                    
+                    
+                   
                 },
                 beforeSend:function (){
                     
@@ -117,7 +103,18 @@
                     console.log('NOOOOOOOOO');
                 }
             });
-            }
+        }
+
+       function contador() {
+        console.log("Empieza paginacion con: "+numero);
+           if(numero<12){
+              numero++;
+           }
+           
+           console.log(numero);
+       }
+
+           
 
            
 </script>
